@@ -128,12 +128,12 @@ def train_trg(src_encoder, tgt_encoder, critic, src_classifier,
             optimizer_tgt.step()
 
         loss_val, acc_val, prob_val, label_val, _ = evaluate(tgt_encoder, src_classifier, val_loader)
-        loss_trg, acc_trg, prob_trg, label_trg, _ = evaluate(tgt_encoder, src_classifier, tgt_test)
+ #       loss_trg, acc_trg, prob_trg, label_trg, _ = evaluate(tgt_encoder, src_classifier, tgt_test)
 
         if epoch % 5 == 0:
             print(
-                f'Epoch[{epoch}],loss_val:{loss_val:.4f}||acc_val:{acc_val:.4f}'
-                f'||loss_trg:{loss_trg:.4f}||acc_trg:{acc_trg:.4f}')
+                f'Epoch[{epoch}],loss_val:{loss_val:.4f}||acc_val:{acc_val:.4f}')
+ #               f'||loss_trg:{loss_trg:.4f}||acc_trg:{acc_trg:.4f}')
         if acc_val > acc_best:
             acc_best = acc_val
             trg_encoder_best = copy.deepcopy(tgt_encoder.state_dict())
